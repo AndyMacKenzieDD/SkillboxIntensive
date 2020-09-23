@@ -21,7 +21,17 @@ public class AsteroidScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "GameBaundary")
+        {
+            return;
+        }
+
         Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
+
+        if(other.tag == "Player")
+        {
+            Instantiate(playerExplosion, other.transform.position, Quaternion.identity);
+        }
 
         Destroy(gameObject);
         Destroy(other.gameObject);
