@@ -7,6 +7,13 @@ public class PlayerShipScript : MonoBehaviour
     public float xMin, xMax, zMin, zMax;
     public float speed;
     public float tilt;
+    public float shotDelay;
+
+    float nextShotTime;
+
+    public GameObject LazerShot;
+    public GameObject LazerGun;
+
     Rigidbody ship;
 
     // Start is called before the first frame update
@@ -29,5 +36,11 @@ public class PlayerShipScript : MonoBehaviour
         ship.position = new Vector3(clampedX, 0, clampedZ);
 
         ship.rotation = Quaternion.Euler(ship.velocity.z * tilt, 0, -ship.velocity.x * tilt);
+
+        if(Time.time > nextShotTime)
+        {
+            Instantiate(LazerShot, LazerGun.transform.position, Quaternion.identity);
+            nextShotTime = Time.time + shotDelay;
+        }
     }
 }
