@@ -25,6 +25,8 @@ public class PlayerShipScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameControllerScript.instatnce.isStarted) return;
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 

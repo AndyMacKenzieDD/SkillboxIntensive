@@ -7,6 +7,7 @@ TagManager:
   - FxTemporaire
   - Asteroid
   - GameBaundary
+  - Lazer
   layers:
   - Default
   - TransparentFX
