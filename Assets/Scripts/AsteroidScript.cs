@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +24,11 @@ public class AsteroidScript : MonoBehaviour
         if(other.tag == "GameBaundary")
         {
             return;
+        }
+
+        if (other.tag == "Lazer")
+        {
+            GameControllerScript.instatnce.score += 10;
         }
 
         Instantiate(asteroidExplosion, transform.position, Quaternion.identity);
